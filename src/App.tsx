@@ -6,7 +6,7 @@ function App() {
   return (
     <div
       className=" bg-custom md:bg-custom-2  lg:bg-custom-3 bg-cover
-     w-screen h-screen bg-center text-neutral-50 text-xl pt-3"
+     w-screen  bg-center text-neutral-50 text-xl pt-3"
     >
     <Header/>
    <Form/>

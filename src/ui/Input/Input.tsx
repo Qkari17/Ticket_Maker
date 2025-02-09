@@ -22,7 +22,7 @@ export const Input = forwardRef(
           className={clsx({
             " border-2 border-red-500 bg-neutral-500/10 text-neutral-300 rounded-lg ring-red-300  focus:ring-red-500 ":
               error,
-            "border-2 border-neutral-300 p-3 bg-neutral-500/10 text-neutral-300 rounded-lg placeholder:text-neutral-500 ":
+            "border-2 border-neutral-500 p-3 bg-neutral-400/15 text-neutral-300 rounded-lg placeholder:text-neutral-400 ":
               !error,
           })}
         ></input>
