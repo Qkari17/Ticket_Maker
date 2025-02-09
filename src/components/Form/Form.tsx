@@ -2,8 +2,19 @@ import { Input } from "../../ui/Input/Input";
 import line from "../../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg";
 import cloud from "../../assets/images/icon-upload.svg";
 import file from "../../assets/images/icon-info.svg";
+import { useNavigate } from "react-router";
 
 export const Form = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    // Perform form validation or API calls here
+    // For now, just navigate to the ticket page
+    navigate("/ticket");
+  };
+
   return (
     <form className="flex flex-col gap-5 p-4 relative pb-44 ">
       <div className=" flex flex-col gap-2 ">
@@ -31,6 +42,7 @@ export const Form = () => {
           >
             <img
               src={cloud}
+              alt="cloud"
               className="border rounded-xl w-12 p-1.5 bg-neutral-400/15 border-neutral-500"
             />
             <p className=" text-neutral-400">
@@ -40,8 +52,8 @@ export const Form = () => {
         </div>
         <div className="flex gap-2">
           {" "}
-          <img src={file} />
-          <p className="text-neutral-400 text-sm">
+          <img src={file} alt="file" />
+          <p className="text-neutral-400 text-xs">
             Upload your photo (JPG or PNG, max size: 500KB).
           </p>
         </div>
@@ -51,6 +63,7 @@ export const Form = () => {
       <Input label="Email Address" placeholder="example@email.com"></Input>
       <Input label="GitHub Username" placeholder="@yourusername"></Input>
       <button
+        onClick={handleSubmit}
         type="submit"
         className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 "
       >

@@ -1,6 +1,7 @@
+import { RouterProvider } from "react-router";
 import "./App.css";
-import { Form } from "./components/Form/Form";
 import { Header } from "./components/Header/Header";
+import { router } from "./routes";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
      w-screen  bg-center text-neutral-50 text-xl pt-3"
     >
     <Header/>
-   <Form/>
+   <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
