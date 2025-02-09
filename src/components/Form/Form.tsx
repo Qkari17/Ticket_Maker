@@ -3,20 +3,32 @@ import line from "../../assets/images/pattern-squiggly-line-bottom-mobile-tablet
 import cloud from "../../assets/images/icon-upload.svg";
 import file from "../../assets/images/icon-info.svg";
 import { useNavigate } from "react-router";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { RegistrationFormData, validationSchema } from "./type";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const Form = () => {
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+   
+  } = useForm<RegistrationFormData>({
+    resolver: zodResolver(validationSchema),
+  });
 
-    // Perform form validation or API calls here
-    // For now, just navigate to the ticket page
-    navigate("/ticket");
+  const handleRegistrationForm: SubmitHandler<RegistrationFormData> = (data) => {
+    console.log(data);
+    navigate("/ticket", { state: data }); 
   };
 
   return (
-    <form className="flex flex-col gap-5 p-4 relative pb-44 ">
+    <form
+      onSubmit={handleSubmit(handleRegistrationForm)}
+      className="flex flex-col gap-5 p-4 relative pb-44 "
+    >
       <div className=" flex flex-col gap-2 ">
         <h1 className="font-bold text-2xl text-center">
           Your Journey to Coding <br />
@@ -59,11 +71,25 @@ export const Form = () => {
         </div>
       </div>
       {/* <Input label="Image" type="file"></Input> */}
-      <Input label="Full Name" autoFocus></Input>
-      <Input label="Email Address" placeholder="example@email.com"></Input>
-      <Input label="GitHub Username" placeholder="@yourusername"></Input>
+      <Input
+        label="Full Name"
+        {...register("fullname")}
+        error={errors.fullname}
+        autoFocus
+      ></Input>
+      <Input
+        label="Email Address"
+        {...register("email")}
+        error={errors.email}
+        placeholder="example@email.com"
+      ></Input>
+      <Input
+        label="GitHub Username"
+        {...register("username")}
+        error={errors.username}
+        placeholder="@yourusername"
+      ></Input>
       <button
-        onClick={handleSubmit}
         type="submit"
         className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 "
       >
