@@ -12,7 +12,7 @@ export const Input = forwardRef(
     const id = useId();
     return (
       <div className="flex flex-col gap-2">
-        <label className="mb-1 text-neutral-50 lg:text-2xl" htmlFor={id}>
+        <label className="mb-1 text-neutral-50 " htmlFor={id}>
           {label}
         </label>
         <input
@@ -20,9 +20,9 @@ export const Input = forwardRef(
           ref={ref}
           {...rest}
           className={clsx({
-            " border-2 border-red-500 bg-neutral-500/10 text-white pl-2 rounded-lg ring-red-300 placeholder:text-red-300 focus:ring-red-500 max-w-60 lg:text-2xl  lg:max-w-80 ":
+            " border-2 border-red-500 bg-neutral-500/10 text-neutral-300 rounded-lg ring-red-300  focus:ring-red-500 ":
               error,
-            "border-2 border-zinc-500 bg-neutral-500/20 text-white pl-2 rounded-lg autofill:bg-zinc-600 lg:text-2xl lg:max-w-80":
+            "border-2 border-neutral-300 p-3 bg-neutral-500/10 text-neutral-300 rounded-lg placeholder:text-neutral-500 ":
               !error,
           })}
         ></input>
