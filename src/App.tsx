@@ -1,10 +1,14 @@
 import "./App.css";
+import { Form } from "./components/Form/Form";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div
+      className=" bg-custom md:bg-custom-2  lg:bg-custom-3 bg-cover
+     w-screen h-screen bg-center p-3 text-neutral-50 text-xl"
+    >
+   <Form/>
+    </div>
   );
 }
 
