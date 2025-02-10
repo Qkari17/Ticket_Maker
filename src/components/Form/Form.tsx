@@ -104,8 +104,9 @@ export const Form = () => {
             Upload your photo (JPG or PNG, max size: 500KB). <a className="text-blue-400 hover:text-blue-500" href={sample} download>Sample</a>
           </p>
         </div>
-        {errors.file && (
-          <p className="text-red-500 text-sm">{errors.file.message}</p>)}
+       
+        {errors.file && ( 
+          <p className="text-button2 text-sm">{errors.file.message}</p>)}
       </div>
       {/* <Input label="Image" type="file"></Input> */}
       <Input

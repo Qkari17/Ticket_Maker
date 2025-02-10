@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inconsolata:wght@200..900&family=Roboto:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
     --color-button1: hsl(7, 88%, 67%);
     --color-button2: hsl(7, 71%, 60%);
-  
+    --font-inconsolata: "Inconsolata", serif;
    
   }

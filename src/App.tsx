@@ -7,7 +7,7 @@ function App() {
   return (
     <div
       className=" bg-custom md:bg-custom-2  lg:bg-custom-3 bg-cover
-     w-screen  bg-center text-neutral-50 text-xl pt-3"
+     w-screen  bg-center text-neutral-50 text-xl pt-3 font-inconsolata"
     >
     <Header/>
    <RouterProvider router={router}></RouterProvider>

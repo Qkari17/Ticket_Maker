@@ -26,7 +26,7 @@ export const Input = forwardRef(
               !error,
           })}
         ></input>
-        {error && <p className="text-red-500"> {error?.message}</p>}
+        {error && <p className="text-button2 text-sm"> {error?.message}</p>}
       </div>
     );
   }
