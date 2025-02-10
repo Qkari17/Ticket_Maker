@@ -2,6 +2,7 @@ import { Input } from "../../ui/Input/Input";
 import line from "../../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg";
 import cloud from "../../assets/images/icon-upload.svg";
 import file from "../../assets/images/icon-info.svg";
+import sample from "../../assets/images/sample.jpg"
 import { useNavigate } from "react-router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RegistrationFormData, validationSchema } from "./type";
@@ -100,7 +101,7 @@ export const Form = () => {
           {" "}
           <img src={file} alt="file" />
           <p className="text-neutral-400 text-xs">
-            Upload your photo (JPG or PNG, max size: 500KB).
+            Upload your photo (JPG or PNG, max size: 500KB). <a className="text-blue-400 hover:text-blue-500" href={sample} download>Sample</a>
           </p>
         </div>
         {errors.file && (
