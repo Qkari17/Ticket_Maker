@@ -6,14 +6,19 @@ import { useNavigate } from "react-router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RegistrationFormData, validationSchema } from "./type";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
 
 export const Form = () => {
   const navigate = useNavigate();
+
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-
+    setValue,
+    trigger,
    
   } = useForm<RegistrationFormData>({
     resolver: zodResolver(validationSchema),
@@ -23,6 +28,26 @@ export const Form = () => {
     console.log(data);
     navigate("/ticket", { state: data }); 
   };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+     
+      setValue("file", file); // Ustaw wartość pola `file` w formularzu
+      trigger("file"); // Wyzwól walidację dla pola `file`
+      const fileUrl = URL.createObjectURL(file);
+      setPreviewUrl(fileUrl);
+    }
+    
+  };
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
   return (
     <form
@@ -47,16 +72,25 @@ export const Form = () => {
             type="file"
             id="files"
             className=" absolute h-full w-full text-amber-600/0 "
+            onChange={handleFileChange}
           />
           <label
             htmlFor="files"
             className="  p-4  border-spacing flex flex-col gap-2 items-center"
           >
-            <img
-              src={cloud}
-              alt="cloud"
-              className="border rounded-xl w-12 p-1.5 bg-neutral-400/15 border-neutral-500"
-            />
+             {previewUrl ? (
+              <img
+                src={previewUrl}
+                alt="Preview"
+                className="border rounded-xl w-12 h-12 object-cover"
+              />
+            ) : (
+              <img
+                src={cloud}
+                alt="cloud"
+                className="border rounded-xl w-12 p-1.5 bg-neutral-400/15 border-neutral-500"
+              />
+            )}
             <p className=" text-neutral-400">
               Drag and drop or click to upload
             </p>
@@ -69,6 +103,8 @@ export const Form = () => {
             Upload your photo (JPG or PNG, max size: 500KB).
           </p>
         </div>
+        {errors.file && (
+          <p className="text-red-500 text-sm">{errors.file.message}</p>)}
       </div>
       {/* <Input label="Image" type="file"></Input> */}
       <Input

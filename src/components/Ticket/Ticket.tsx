@@ -8,10 +8,14 @@ export const Ticket = () => {
   const location = useLocation();
   const formData = location.state as RegistrationFormData;
 
+console.log(formData.file)
+
   if (!formData) {
     return <Navigate to="/" />;
   }
 
+  const fileUrl = URL.createObjectURL(formData.file)
+  
   return (
     <div className="h-screen flex flex-col gap-20 p-4 items-center relative">
       <div className="flex-col flex gap-4 items-center">
@@ -38,7 +42,7 @@ export const Ticket = () => {
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="w-14 h-14 bg-amber-500"></div>
+              <img src={fileUrl} alt="avatar" className="w-14 h-14"/>
               <div>
                 <h2>{formData.fullname}</h2>
                 <p className="flex text-sm text-neutral-400">
