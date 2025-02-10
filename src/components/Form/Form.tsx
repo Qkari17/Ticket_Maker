@@ -68,7 +68,7 @@ export const Form = () => {
 
       <div className="flex flex-col gap-2">
         <h2>Upload Avatar</h2>
-        <div className="flex flex-col gap-2 relative bg-neutral-400/15 border-dashed border rounded-xl border-neutral-500">
+        <div className="flex flex-col gap-2 relative bg-neutral-400/15 border-dashed border rounded-xl border-neutral-500 hover:bg-neutral-400/40">
           <input
             type="file"
             id="files"
@@ -129,7 +129,7 @@ export const Form = () => {
       ></Input>
       <button
         type="submit"
-        className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 "
+        className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 hover:bg-button2"
       >
         {" "}
         Generate My Ticket
