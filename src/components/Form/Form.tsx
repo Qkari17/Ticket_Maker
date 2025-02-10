@@ -53,7 +53,7 @@ export const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(handleRegistrationForm)}
-      className="flex flex-col gap-5 p-4 relative pb-44 "
+      className="flex flex-col gap-5 p-4 relative pb-44 z-20"
     >
       <div className=" flex flex-col gap-2 ">
         <h1 className="font-bold text-2xl text-center">
@@ -126,15 +126,16 @@ export const Form = () => {
         {...register("username")}
         error={errors.username}
         placeholder="@yourusername"
+        className="z-10"
       ></Input>
       <button
         type="submit"
-        className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 hover:bg-button2"
+        className="bg-button1 text-neutral-900 font-bold text-lg py-3 rounded-xl z-10 hover:bg-button2 z-10"
       >
         {" "}
         Generate My Ticket
       </button>
-      <img src={line} className=" absolute bottom-0 left-0 " />
+      <img src={line} className=" absolute bottom-0 left-0 h-60" />
     </form>
   );
 };
