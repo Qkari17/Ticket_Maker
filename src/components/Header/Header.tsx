@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className="flex justify-center py-5 relative">
       <img className="w-40" src={logo} />
-      <img className=" absolute right-0 top-2 max-w-30" src={lines} />
+      <img className=" absolute right-0 top-2 max-w-30 lg:hidden" src={lines} />
     </div>
   );
 };

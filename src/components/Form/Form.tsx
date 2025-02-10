@@ -51,12 +51,9 @@ export const Form = () => {
   }, [previewUrl]);
 
   return (
-    <form
-      onSubmit={handleSubmit(handleRegistrationForm)}
-      className="flex flex-col gap-5 p-4 relative pb-44 z-20"
-    >
-      <div className=" flex flex-col gap-2 ">
-        <h1 className="font-bold text-2xl text-center">
+    <div className=" ">
+       <div className=" flex flex-col gap-2 ">
+        <h1 className="font-bold text-2xl text-center md:text-5xl ">
           Your Journey to Coding <br />
           Conf 2025 Starts Here!
         </h1>
@@ -65,6 +62,11 @@ export const Form = () => {
           biggest coding conference.
         </section>
       </div>
+    <form
+      onSubmit={handleSubmit(handleRegistrationForm)}
+      className="flex flex-col gap-5 p-4 relative md:px-40 pb-44 z-20 md:w-[769px] m-auto"
+    >
+     
 
       <div className="flex flex-col gap-2">
         <h2>Upload Avatar</h2>
@@ -135,7 +137,7 @@ export const Form = () => {
         {" "}
         Generate My Ticket
       </button>
-      <img src={line} className=" absolute bottom-0 left-0 h-60" />
-    </form>
+      <img src={line} className=" absolute bottom-0 left-0 h-60 lg:hidden" />
+    </form></div>
   );
 };
